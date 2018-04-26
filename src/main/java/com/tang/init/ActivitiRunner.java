@@ -10,13 +10,13 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-@Component
-@Order(1)
 /**
  * 
  * @author tang
  *
  */
+@Order(1)
+@Component
 public class ActivitiRunner implements CommandLineRunner {
 
 	private final RepositoryService repositoryService;
@@ -33,6 +33,7 @@ public class ActivitiRunner implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		System.out.println("Number of process definitions : " + repositoryService.createProcessDefinitionQuery().count());
 		System.out.println("Number of tasks : " + taskService.createTaskQuery().count());
+		
 		Map<String, Object> variables = new HashMap<String, Object>();
         variables.put("applicantName", "John Doe");
         variables.put("email", "john.doe@activiti.com");
